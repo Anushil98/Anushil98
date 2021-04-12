@@ -8,7 +8,7 @@ I'm Anushil.
 </p>
 
 <p align='center'>
-<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anushil98&hide=jupyter%20notebook&theme=dark&&text_color=ffffff" />
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anushil98&hide=jupyter%20notebook&langs_count=10&custom_title=I%20have%20coffee%20 with&theme=dark&&text_color=ffffff&layout=compact" />
   </p>
   
 <p align='center'>
