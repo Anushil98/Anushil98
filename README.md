@@ -3,9 +3,9 @@
 <h1 align='center'> Hello, folks! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px"></h1>
 
 
-<p align='center'>
+<h3 align='center'>
 I'm Anushil.
-</p>
+</h3>
 
 <p align='center'>
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anushil98&hide=jupyter%20notebook&langs_count=10&custom_title=I%20have%20coffee%20 with&theme=dark&&text_color=ffffff&layout=compact" />
