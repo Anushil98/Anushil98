@@ -1,5 +1,5 @@
-<div class="MainArea" style="padding: 26px">
-<div class ="TechStack" style="backdrop-filter: brightness(0.9) blur(2px);">
+
+<p align="center"><img align="center" src="https://raw.githubusercontent.com/Anushil98/Anushil98/master/name.svg" alt="<Anushil/>"/>&nbsp;</p>
 
 ### 🛠 &nbsp;Tech Stack
 
@@ -22,7 +22,6 @@
 ![Git](https://img.shields.io/badge/-Git-05122A?style=for-the-badge&logo=git)&nbsp;
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)&nbsp;
 ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC)&nbsp;
-</div>
 
 <!-- <div class="GithubStats">
 <div>
