@@ -1,13 +1,4 @@
-<div class="MainArea" style="padding: 26px;
-	border-radius: 2%;">
-<div class="UserInfo" style="display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: xxx-large;
-	font-family: sudo;
-	color: #378d4e">
-&lt;Anushil/&gt;
-</div>
+<div class="MainArea" style="padding: 26px">
 <div class ="TechStack" style="backdrop-filter: brightness(0.9) blur(2px);">
 
 ### 🛠 &nbsp;Tech Stack
