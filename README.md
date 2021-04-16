@@ -23,6 +23,17 @@
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)&nbsp;
 ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC)&nbsp;
 
+###  Stats
+![Metrics](https://github.com/Anushil98/Anushil98/blob/master/github-metrics.svg)&nbsp;
+
+### :link: Find Me Here!!
+
+<a href="https://github.com/Anushil98"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> &nbsp; <a href="https://www.linkedin.com/in/anushil-ghoshdastidar-081458188/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+
+### ☕: Let's have a conversation!!
+<a href="anushilghoshdastidar@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+
+
 <!-- <div class="GithubStats">
 <div>
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Anushil98&hide=jupyter%20notebook&langs_count=10&custom_title=I%20have%20coffee%20 with&theme=dark&&text_color=ffffff&layout=compact" />
