@@ -23,7 +23,7 @@
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)&nbsp;
 ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=for-the-badge&logo=visual-studio-code&logoColor=007ACC)&nbsp;
 
-###  Stats
+### 📊: Stats
 ![Metrics](https://github.com/Anushil98/Anushil98/blob/master/github-metrics.svg)&nbsp;
 
 ### :link: Find Me Here!!
