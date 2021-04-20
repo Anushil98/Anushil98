@@ -31,7 +31,7 @@
 <a href="https://github.com/Anushil98"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> &nbsp; <a href="https://www.linkedin.com/in/anushil-ghoshdastidar-081458188/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 
 ### ☕: Let's have a conversation!!
-<a href="anushilghoshdastidar@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+<a href=":mailto:anushilghoshdastidar@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
 
 
 <!-- <div class="GithubStats">
