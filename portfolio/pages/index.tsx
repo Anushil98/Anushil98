@@ -30,6 +30,7 @@ export default function Home() {
 			</Head>
 			<Header />
 			<Name>{'<Anushil/>'}</Name>
+			<Brief>{'""'}</Brief>
 		</div>
 	);
 }
