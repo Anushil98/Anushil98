@@ -25,6 +25,14 @@ const Page1 = styled.section`
 	flex-direction: column;
 	justify-content: center;
 `;
+const Page2 = styled.section`
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
+`;
 
 const Name = styled.div`
 	width: 100%;
@@ -58,9 +66,10 @@ export default function Home() {
 				<Name>{'<Anushil/>'}</Name>
 				<Brief>{'Secure, Scalable And Ethical Code'}</Brief>
 			</Page1>
-			<Page1>
+			<Page2>
 				<Section />
-			</Page1>
+				<Section />
+			</Page2>
 		</Main>
 	);
 }

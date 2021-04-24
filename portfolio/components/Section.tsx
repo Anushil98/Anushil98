@@ -24,18 +24,30 @@ const CardWrapper = styled.div`
 	align-items: center;
 	flex-direction: column;
 	justify-content: flex-start;
+	width: 80vw;
+	overscroll-behavior: contain;
 `;
 
 const CardWrapperLevel1 = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 const Card =
 	styled.div <
 	{ grayscale: boolean } >
 	`
+	display:inline-block;
+	width:18vw;
+	height:	18vh;
 	filter: ${(props) => {
 		return props.grayscale ? 'grayscale(100%)' : 'grayscale(0%)';
 	}} `;
@@ -64,7 +76,7 @@ export default function Section() {
 		{ name: 'python', color: '14354C' }
 	];
 	return (
-		<div>
+		<div style={{ height: 'fit-content' }}>
 			<SubHeading>{'<Lanuguages/>'}</SubHeading>
 			<SubSection
 				style={{
@@ -85,6 +97,7 @@ export default function Section() {
 											setcurrentTech(index);
 										}}
 										key={index}
+										style={{ width: 'fit-content' }}
 									>
 										<Card
 											onClick={(e) => {
