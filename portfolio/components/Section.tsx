@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { v4 } from 'uuid';
 
 const SubSection = styled.div`
 	height: fit-content;
@@ -25,15 +26,17 @@ const CardWrapper = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	width: 80vw;
-	overscroll-behavior: contain;
 `;
 
 const CardWrapperLevel1 = styled.div`
 	display: flex;
+
 	flex-direction: row;
 	justify-content: flex-start;
 	overflow-x: scroll;
 	overflow-y: hidden;
+	scroll-behavior: smooth;
+
 	white-space: nowrap;
 
 	&::-webkit-scrollbar {
@@ -47,7 +50,7 @@ const Card =
 	`
 	display:inline-block;
 	width:18vw;
-	height:	18vh;
+	height:	18vw;
 	filter: ${(props) => {
 		return props.grayscale ? 'grayscale(100%)' : 'grayscale(0%)';
 	}} `;
@@ -64,17 +67,42 @@ const SubCard =
 	}};
 	height:auto;
 	 `;
+const Scrollable = styled.div`
+	position: relative;
+	display: flex;
+	align-items: center;
+`;
 
-export default function Section() {
-	const [ currentTech, setcurrentTech ] = useState(0);
+const LeftArrow = styled.a`
+	position: absolute;
+	width: 100px;
+	height: inherit;
+	left: 0;
+	z-index: 2;
+	backdrop-filter: blur(7px);
+`;
+const RightArrow = styled.a`
+	position: absolute;
+	width: 100px;
+	height: inherit;
+	right: 0;
+	z-index: 2;
+	backdrop-filter: blur(7px);
+`;
+
+export default function Section(props: { isMobile?: boolean }) {
+	const [ currentTech, setcurrentTech ] = useState(props.isMobile ? 0 : -1);
 
 	const UniqueTechStacks = [
 		{ name: 'typescript', color: '007ACC' },
 		{ name: 'javascript', color: 'F7DF1E' },
+		{ name: 'html', color: 'E34F26' },
+		{ name: 'css3', color: '1572B6' },
 		{ name: 'python', color: '14354C' },
 		{ name: 'java', color: 'ED8B00' },
-		{ name: 'python', color: '14354C' }
+		{ name: 'C', color: '00599C' }
 	];
+	const uniqueId = v4();
 	return (
 		<div style={{ height: 'fit-content' }}>
 			<SubHeading>{'<Lanuguages/>'}</SubHeading>
@@ -89,41 +117,58 @@ export default function Section() {
 					}}
 				>
 					<CardWrapper>
-						<CardWrapperLevel1>
-							{UniqueTechStacks.map((uniq, index) => {
-								return (
-									<motion.div
-										onHoverStart={() => {
-											setcurrentTech(index);
-										}}
-										key={index}
-										style={{ width: 'fit-content' }}
-									>
-										<Card
-											onClick={(e) => {
-												if (currentTech === -1 || currentTech !== index) setcurrentTech(index);
-												else setcurrentTech(-1);
+						<Scrollable>
+							{/* <LeftArrow href={'#' + uniqueId + 'techStack' + 0}>
+								<img src="/prev.svg" />
+							</LeftArrow> */}
+
+							<CardWrapperLevel1>
+								{UniqueTechStacks.map((uniq, index) => {
+									return (
+										<motion.div
+											onHoverStart={() => {
+												setcurrentTech(index);
 											}}
-											grayscale={currentTech === index ? false : true}
+											key={index}
+											// id={uniqueId + 'techStack' + index.toString()}
+											style={{ width: 'fit-content' }}
 										>
-											<img src={`/TechIcon/${uniq.name}.svg`} />
-										</Card>
-									</motion.div>
-								);
-							})}
-						</CardWrapperLevel1>
+											<Card
+												onClick={(e) => {
+													if (currentTech === -1 || currentTech !== index)
+														setcurrentTech(index);
+													else setcurrentTech(-1);
+												}}
+												grayscale={currentTech === index ? false : true}
+											>
+												<img src={`/TechIcon/${uniq.name}.svg`} />
+											</Card>
+										</motion.div>
+									);
+								})}
+							</CardWrapperLevel1>
+
+							{/* <RightArrow href={'#' + uniqueId + 'techStack' + (UniqueTechStacks.length - 1)}>
+								<img src="/next.svg" />
+							</RightArrow> */}
+						</Scrollable>
 
 						<AnimatePresence>
-							<motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 0.5 }}>
-								{currentTech >= 0 ? (
+							{currentTech >= 0 ? (
+								<motion.div
+									initial={{ transformOrigin: 'left top', transform: 'scaleY(0)' }}
+									transition={{ type: 'keyframes', duration: 0.5 }}
+									animate={{ transform: 'scaleY(1)' }}
+									exit={{ transformOrigin: 'left top', transform: 'scaleY(0)' }}
+								>
 									<SubCard
 										bgColor={UniqueTechStacks[currentTech].color}
 										numElements={UniqueTechStacks.length}
 									>
 										<img src={`/LanguageCodeSnippets/${UniqueTechStacks[currentTech].name}.svg`} />
 									</SubCard>
-								) : null}
-							</motion.div>
+								</motion.div>
+							) : null}
 						</AnimatePresence>
 					</CardWrapper>
 				</motion.div>

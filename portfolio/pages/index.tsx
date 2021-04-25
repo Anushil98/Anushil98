@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
 import Section from '../components/Section';
+import { getMobileDetect } from '../utils/getDeviceInfo';
 
 const Main = styled.div`
 	display: grid;
@@ -54,7 +55,7 @@ const Brief = styled.div`
 	font-size: 4.3vw;
 `;
 
-export default function Home() {
+export default function Home(props: { isMobile: boolean }) {
 	return (
 		<Main>
 			<Head>
@@ -62,14 +63,24 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			{/* <Header /> */}
-			<Page1>
+			<Page1 id="page1">
 				<Name>{'<Anushil/>'}</Name>
 				<Brief>{'Secure, Scalable And Ethical Code'}</Brief>
 			</Page1>
-			<Page2>
-				<Section />
-				<Section />
+			<Page2 id="page2">
+				<Section isMobile={props.isMobile} />
+				<Section isMobile={props.isMobile} />
 			</Page2>
 		</Main>
 	);
+}
+
+export async function getServerSideProps({ req }) {
+	const getDeviceInformation = getMobileDetect(req.headers['user-agent']);
+
+	return {
+		props: {
+			isMobile: getDeviceInformation.isMobile()
+		}
+	};
 }
