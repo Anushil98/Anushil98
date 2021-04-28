@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
 import Section from '../components/Section';
+import Section2 from '../components/Section2';
 import { getMobileDetect } from '../utils/getDeviceInfo';
 
 const Main = styled.div`
@@ -69,7 +70,7 @@ export default function Home(props: { isMobile: boolean }) {
 			</Page1>
 			<Page2 id="page2">
 				<Section isMobile={props.isMobile} />
-				<Section isMobile={props.isMobile} />
+				<Section2 isMobile={props.isMobile} />
 			</Page2>
 		</Main>
 	);
