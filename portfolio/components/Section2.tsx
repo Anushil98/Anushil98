@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { v4 } from 'uuid';
 import ZoomCard from './ZoomCard';
 
 const SubSection = styled.div`
@@ -38,6 +37,7 @@ const CardWrapperLevel1 = styled.div`
 	scroll-behavior: smooth;
 	white-space: nowrap;
 	width: 80vw;
+	height: max-content;
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -161,15 +161,28 @@ export default function Section2(props: { isMobile?: boolean }) {
 			gifUrl: '/projects/projectLogo/socio.svg'
 		}
 	];
-	const uniqueId = v4();
+	const currentIndex = useRef(-1);
+	const setCurrentRef = (x: number) => {
+		currentIndex.current = x;
+	};
+	const getCurrentIndex = () => currentIndex.current;
 	return (
 		<div style={{ height: 'fit-content', position: 'relative', zIndex: 1 }}>
 			<SubHeading>{'<Projects/>'}</SubHeading>
-			<CardWrapperLevel1>
+			<CardWrapperLevel1 onMouseLeave={() => setCurrentRef(-1)}>
 				{projects.map((proj, index) => {
-					return <ZoomCard data={proj} key={index} index={index} />;
+					return (
+						<ZoomCard
+							data={proj}
+							key={index}
+							index={index}
+							currentIndexMod={setCurrentRef}
+							currentIndex={getCurrentIndex}
+						/>
+					);
 				})}
 			</CardWrapperLevel1>
+			<div id="test" />
 		</div>
 	);
 }
