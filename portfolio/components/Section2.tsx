@@ -34,7 +34,7 @@ const CardWrapper = styled.div`
 
 const CardWrapperLevel1 = styled.div`
 	overflow-x: scroll;
-
+	/* height: max-content; */
 	scroll-behavior: smooth;
 	white-space: nowrap;
 	width: 80vw;

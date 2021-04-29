@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Card = styled.div`
 	height: 100%;
 	width: 100%;
+	position: relative;
 `;
 
 const LiveStatus =
@@ -71,13 +72,13 @@ function ZoomCard(props: {
 								position: 'absolute',
 								zIndex: 4,
 								backgroundColor: 'white',
-								// top: '10px',
-								left: props.index * 100,
+								top: '-100px',
+								// left: props.index * 100 + 'px',
 								borderStyle: 'solid',
 								borderColor: 'black',
 								borderRadius: '2%'
 							}}
-							initial={{ height: '100px', width: '100px', top: '5.2vw', opacity: 0 }}
+							initial={{ height: '100px', width: '100px', top: '0', opacity: 0 }}
 							animate={{
 								height: 'fit-content',
 								width: '150px',
