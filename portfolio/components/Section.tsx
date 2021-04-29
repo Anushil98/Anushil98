@@ -32,7 +32,7 @@ const CardWrapperLevel1 = styled.div`
 	display: flex;
 
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: space-between;
 	overflow-x: scroll;
 	overflow-y: hidden;
 	scroll-behavior: smooth;
@@ -46,11 +46,19 @@ const CardWrapperLevel1 = styled.div`
 
 const Card =
 	styled.div <
-	{ grayscale: boolean } >
+	{ grayscale: boolean, backgroundImage: string } >
 	`
 	display:inline-block;
-	width:18vw;
-	height:	18vw;
+	width:100px;
+	height:	100px;
+	background-image:${(props) => {
+		return `url('${props.backgroundImage}')`;
+	}};
+	background-repeat:no-repeat;
+	background-size:cover;
+	border-radius: 20%;
+    margin-right: 10px;
+    box-shadow: inset -7px -7px 7px 0px #bcb9b9;
 	filter: ${(props) => {
 		return props.grayscale ? 'grayscale(100%)' : 'grayscale(0%)';
 	}} `;
@@ -61,7 +69,8 @@ const SubCard =
 	`background-color: ${(props) => {
 		return '#' + props.bgColor;
 	}};
-	
+	border-radius: 4%;
+    box-shadow: inset 0px 8px 7px 0px #bcb9b9;
 	width:${(props) => {
 		return 100 + '%';
 	}};
@@ -106,11 +115,7 @@ export default function Section(props: { isMobile?: boolean }) {
 	return (
 		<div style={{ height: 'fit-content' }}>
 			<SubHeading>{'<Lanuguages/>'}</SubHeading>
-			<SubSection
-				style={{
-					backgroundColor: currentTech >= 0 ? '#' + UniqueTechStacks[currentTech].color : '#ffffff'
-				}}
-			>
+			<SubSection>
 				<motion.div
 					onHoverEnd={() => {
 						setcurrentTech(-1);
@@ -140,9 +145,8 @@ export default function Section(props: { isMobile?: boolean }) {
 													else setcurrentTech(-1);
 												}}
 												grayscale={currentTech === index ? false : true}
-											>
-												<img src={`/TechIcon/${uniq.name}.svg`} />
-											</Card>
+												backgroundImage={`/TechIcon/${uniq.name}.svg`}
+											/>
 										</motion.div>
 									);
 								})}
@@ -164,6 +168,10 @@ export default function Section(props: { isMobile?: boolean }) {
 									<SubCard
 										bgColor={UniqueTechStacks[currentTech].color}
 										numElements={UniqueTechStacks.length}
+										style={{
+											backgroundColor:
+												currentTech >= 0 ? '#' + UniqueTechStacks[currentTech].color : '#ffffff'
+										}}
 									>
 										<img src={`/LanguageCodeSnippets/${UniqueTechStacks[currentTech].name}.svg`} />
 									</SubCard>

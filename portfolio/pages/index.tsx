@@ -26,6 +26,8 @@ const Page1 = styled.section`
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
+	position: relative;
+	z-index: 1;
 `;
 const Page2 = styled.section`
 	height: 100%;
@@ -34,6 +36,8 @@ const Page2 = styled.section`
 	align-items: flex-start;
 	flex-direction: column;
 	justify-content: flex-start;
+	position: relative;
+	z-index: 1;
 `;
 
 const Name = styled.div`

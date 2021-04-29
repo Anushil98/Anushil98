@@ -8,6 +8,8 @@ const SubSection = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	z-index: 1;
 `;
 
 const SubHeading = styled.div`
@@ -18,6 +20,7 @@ const SubHeading = styled.div`
 	font-family: cursive;
 	height: fit-content;
 	margin-bottom: 15px;
+	z-index: -1;
 `;
 
 const CardWrapper = styled.div`
@@ -26,19 +29,15 @@ const CardWrapper = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	width: 80vw;
+	z-index: 1;
 `;
 
 const CardWrapperLevel1 = styled.div`
-	display: flex;
-
-	flex-direction: row;
-	justify-content: flex-start;
 	overflow-x: scroll;
-	overflow-y: hidden;
+
 	scroll-behavior: smooth;
-
 	white-space: nowrap;
-
+	width: 80vw;
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -68,9 +67,9 @@ const SubCard =
 	height:auto;
 	 `;
 const Scrollable = styled.div`
-	position: relative;
 	display: flex;
 	align-items: center;
+	z-index: 1;
 `;
 
 const LeftArrow = styled.a`
@@ -109,10 +108,10 @@ export default function Section2(props: { isMobile?: boolean }) {
 			languages: [ 'typescript', 'javascript', 'html', 'css' ],
 			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
 			imageUrl: '/projects/projectLogo/socio.svg',
-			gifUrl: null
+			gifUrl: '/projects/projectLogo/socio.svg'
 		},
 		{
-			liveState: true,
+			liveState: false,
 			Name: 'Socio',
 			liveUrl: 'https://socio-next-js.vercel.app/',
 			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
@@ -130,23 +129,47 @@ export default function Section2(props: { isMobile?: boolean }) {
 			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
 			imageUrl: '/projects/projectLogo/socio.svg',
 			gifUrl: null
+		},
+		{
+			liveState: false,
+			Name: 'Socio',
+			liveUrl: 'https://socio-next-js.vercel.app/',
+			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
+			languages: [ 'typescript', 'javascript', 'html', 'css' ],
+			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
+			imageUrl: '/projects/projectLogo/socio.svg',
+			gifUrl: null
+		},
+		{
+			liveState: true,
+			Name: 'Socio',
+			liveUrl: 'https://socio-next-js.vercel.app/',
+			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
+			languages: [ 'typescript', 'javascript', 'html', 'css' ],
+			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
+			imageUrl: '/projects/projectLogo/socio.svg',
+			gifUrl: null
+		},
+		{
+			liveState: true,
+			Name: 'Socio',
+			liveUrl: 'https://socio-next-js.vercel.app/',
+			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
+			languages: [ 'typescript', 'javascript', 'html', 'css' ],
+			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
+			imageUrl: '/projects/projectLogo/socio.svg',
+			gifUrl: '/projects/projectLogo/socio.svg'
 		}
 	];
 	const uniqueId = v4();
 	return (
-		<div style={{ height: 'fit-content' }}>
+		<div style={{ height: 'fit-content', position: 'relative', zIndex: 1 }}>
 			<SubHeading>{'<Projects/>'}</SubHeading>
-			<SubSection>
-				<CardWrapper>
-					<Scrollable>
-						<CardWrapperLevel1>
-							{projects.map((proj, index) => {
-								return <ZoomCard data={proj} key={index} index={index} />;
-							})}
-						</CardWrapperLevel1>
-					</Scrollable>
-				</CardWrapper>
-			</SubSection>
+			<CardWrapperLevel1>
+				{projects.map((proj, index) => {
+					return <ZoomCard data={proj} key={index} index={index} />;
+				})}
+			</CardWrapperLevel1>
 		</div>
 	);
 }
