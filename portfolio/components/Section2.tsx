@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { languages, technology } from '../types/Default.types';
 import ZoomCard from './ZoomCard';
 
 const SubSection = styled.div`
@@ -93,8 +94,8 @@ export default function Section2(props: { isMobile?: boolean }) {
 	const projects: {
 		liveState: boolean;
 		Name: string;
-		languages: string[];
-		techStacks: string[];
+		languages: languages[];
+		techStacks: technology[];
 		liveUrl?: string;
 		codeUrl: string;
 		imageUrl?: string;
@@ -105,60 +106,20 @@ export default function Section2(props: { isMobile?: boolean }) {
 			Name: 'Socio',
 			liveUrl: 'https://socio-next-js.vercel.app/',
 			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
-			languages: [ 'typescript', 'javascript', 'html', 'css' ],
-			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
+			languages: [ 'TypeScript', 'JavaScript', 'HTML5', 'CSS3' ],
+			techStacks: [ 'NextJs', 'ReactJs', 'NodeJs', 'Redis', 'PostgreSQL' ],
 			imageUrl: '/projects/projectLogo/socio.svg',
 			gifUrl: '/projects/projectLogo/socio.svg'
 		},
 		{
 			liveState: false,
-			Name: 'Socio',
-			liveUrl: 'https://socio-next-js.vercel.app/',
-			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
-			languages: [ 'typescript', 'javascript', 'html', 'css' ],
-			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
-			imageUrl: '/projects/projectLogo/socio.svg',
-			gifUrl: null
-		},
-		{
-			liveState: true,
-			Name: 'Socio',
-			liveUrl: 'https://socio-next-js.vercel.app/',
-			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
-			languages: [ 'typescript', 'javascript', 'html', 'css' ],
-			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
-			imageUrl: '/projects/projectLogo/socio.svg',
-			gifUrl: null
-		},
-		{
-			liveState: false,
-			Name: 'Socio',
-			liveUrl: 'https://socio-next-js.vercel.app/',
-			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
-			languages: [ 'typescript', 'javascript', 'html', 'css' ],
-			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
-			imageUrl: '/projects/projectLogo/socio.svg',
-			gifUrl: null
-		},
-		{
-			liveState: true,
-			Name: 'Socio',
-			liveUrl: 'https://socio-next-js.vercel.app/',
-			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
-			languages: [ 'typescript', 'javascript', 'html', 'css' ],
-			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
-			imageUrl: '/projects/projectLogo/socio.svg',
-			gifUrl: null
-		},
-		{
-			liveState: true,
-			Name: 'Socio',
-			liveUrl: 'https://socio-next-js.vercel.app/',
-			codeUrl: 'https://github.com/Anushil98/SOCIO-NextJs',
-			languages: [ 'typescript', 'javascript', 'html', 'css' ],
-			techStacks: [ 'NextJs', 'ReactJs', 'html', 'css' ],
-			imageUrl: '/projects/projectLogo/socio.svg',
-			gifUrl: '/projects/projectLogo/socio.svg'
+			Name: 'MEAN-Social_Network',
+			liveUrl: null,
+			codeUrl: 'https://github.com/Anushil98/MEAN-Project-Social-Network',
+			languages: [ 'TypeScript', 'JavaScript', 'HTML5', 'CSS3' ],
+			techStacks: [ 'AngularJs', 'NodeJs', 'MongoDb' ],
+			imageUrl: '/projects/projectLogo/MEAN-CollegeNetwork.svg',
+			gifUrl: '/projects/projectLogo/MEAN-CollegeNetwork.svg'
 		}
 	];
 	const currentIndex = useRef(-1);

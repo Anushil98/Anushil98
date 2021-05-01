@@ -49,8 +49,8 @@ const Card =
 	{ grayscale: boolean, backgroundImage: string } >
 	`
 	display:inline-block;
-	width:100px;
-	height:	100px;
+	width:10vw;
+	height:	10vw;
 	background-image:${(props) => {
 		return `url('${props.backgroundImage}')`;
 	}};

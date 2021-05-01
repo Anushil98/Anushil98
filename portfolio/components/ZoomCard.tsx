@@ -3,21 +3,30 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
-const Card = styled.div`
+const Card =
+	styled.div <
+	{ img: string } >
+	`
 	height: 100%;
 	width: 100%;
 	position: relative;
+	background-image:${(props) => {
+		return `url(${props.img})`;
+	}};
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 const LiveStatus =
 	styled.div <
 	{ status: boolean } >
 	`
-	position: relative;
-	height: 10px;
-	width: 10px;
-	top: 5px;
-	left: 77px;
+	position: absolute;
+    height: 1vw;
+    width: 1vw;
+    top: 5px;
+    right: 5px;
 	background-color: ${(props) => {
 		if (props.status) {
 			return 'green';
@@ -54,8 +63,9 @@ function ZoomCard(props: {
 				style={{
 					backgroundColor: 'white',
 					display: 'inline-block',
-					height: '100px',
-					width: '100px',
+					height: '10vw',
+					width: '10vw',
+					marginLeft: '2vw',
 					borderStyle: 'solid',
 					borderRadius: '10%',
 					zIndex: 1
@@ -66,12 +76,12 @@ function ZoomCard(props: {
 
 					setTimeout(() => {
 						if (props.currentIndex() === props.index) setzommedView((x) => !x);
-					}, 1000);
+					}, 500);
 				}}
 			>
-				<Card>
+				<Card img={props.data.imageUrl}>
 					<LiveStatus status={props.data.liveState} />
-					<img src={props.data.imageUrl} />
+					{/* <img src={props.data.imageUrl} style={{ height: '100%', width: '100%', objectFit: 'contain' }} /> */}
 
 					{zommedView && props.currentIndex() === props.index ? (
 						createPortal(
@@ -83,40 +93,84 @@ function ZoomCard(props: {
 									position: 'absolute',
 									zIndex: 4,
 									backgroundColor: 'white',
-									// left: props.index * 100 + 'px',
-									left: `min(calc(${left}px - 10vw),calc( 80vw - 150px ))`,
+									left: `calc(min(calc(${left}px - 10vw),calc( 80vw - 15vw )) - 5px)`,
+									top: '3.5vw',
 									borderStyle: 'solid',
 									borderColor: 'black',
 									borderRadius: '2%'
 								}}
-								initial={{ height: '100px', width: '100px', top: '0', opacity: 0 }}
+								initial={{ height: '0', width: '10vw', opacity: 0 }}
 								animate={{
-									height: 'fit-content',
-									width: '150px',
+									height: '20vw',
+									maxHeight: '20vw',
+									width: '20vw',
 									opacity: 1,
 									transition: { delay: 0.5, duration: 0.5 }
 								}}
 							>
 								<motion.div
-									style={{ maxHeight: '200px' }}
+									style={{
+										display: 'flex',
+										flexDirection: 'column',
+										justifyContent: 'flex-start'
+									}}
 									initial={{ opacity: 0 }}
 									animate={{
 										opacity: 1,
 										transition: { delay: 1 }
 									}}
 								>
-									<img
-										src={props.data.gifUrl}
-										style={{
-											position: 'relative',
-											backgroundColor: 'red',
-											height: '100px',
-											width: '100%',
-											objectFit: 'cover'
-										}}
-									/>
-									<div style={{ position: 'relative', height: '100px', width: '100%' }}>
-										{props.data.Name}
+									<div style={{ height: '50%', width: '100%' }}>
+										<img
+											src={props.data.gifUrl}
+											style={{
+												position: 'relative',
+												backgroundColor: 'white',
+												height: '100%',
+												width: '100%',
+												objectFit: 'scale-down'
+											}}
+										/>
+									</div>
+									<div style={{ height: '50%', width: '100%' }}>
+										<div style={{ height: '40%', fontFamily: 'cursive', fontSize: '1.5vw' }}>
+											{props.data.Name}
+										</div>
+										<div
+											style={{
+												height: '50%',
+												width: '100%',
+												display: 'flex',
+												flexDirection: 'row',
+												alignItems: 'center',
+												justifyContent: 'center'
+											}}
+										>
+											<a href={props.data.codeUrl}>
+												<img
+													src="/ViewCodeOnGithub.svg"
+													style={{
+														position: 'relative',
+														backgroundColor: 'white',
+														height: '100%',
+														width: '100%',
+														objectFit: 'scale-down'
+													}}
+												/>
+											</a>
+											<a href={props.data.codeUrl}>
+												<img
+													src="/live.svg"
+													style={{
+														position: 'relative',
+														backgroundColor: 'white',
+														height: '100%',
+														width: '100%',
+														objectFit: 'scale-down'
+													}}
+												/>
+											</a>
+										</div>
 									</div>
 								</motion.div>
 							</motion.div>,
