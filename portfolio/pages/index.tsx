@@ -70,6 +70,7 @@ export default function Home(props: { isMobile: boolean }) {
 			{/* <Header /> */}
 			<Page1 id="page1">
 				<Name>{'<Anushil/>'}</Name>
+				<Brief>{'Senior Software Engineer'}</Brief>
 				<Brief>{'Secure, Scalable And Ethical Code'}</Brief>
 			</Page1>
 			<Page2 id="page2">
